@@ -1,4 +1,5 @@
-﻿namespace ProjectSmartHouse.Models;
+﻿using System;
+namespace ProjectSmartHouse.Models;
 
 public class BusinessProcess
 {
@@ -22,5 +23,11 @@ public class BusinessProcess
     public bool IsProcessActive()
     {
         return Name == "Керування освітленням";
+    }
+
+    public void ShowProcessInfo()
+    {
+        Console.WriteLine($"Процес: {Name}");
+        Console.WriteLine($"Процес активний: {IsProcessActive()}");
     }
 }

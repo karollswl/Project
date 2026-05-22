@@ -1,4 +1,5 @@
-﻿namespace ProjectSmartHouse.Models;
+﻿using System;
+namespace ProjectSmartHouse.Models;
 
 public class Device
 {
@@ -22,5 +23,11 @@ public class Device
     public bool IsDeviceActive()
     {
         return Name == "Освітлення";
+    }
+
+    public void ShowDeviceInfo()
+    {
+        Console.WriteLine($"Пристрій: {Name}");
+        Console.WriteLine($"Пристрій активний: {IsDeviceActive()}");
     }
 }
