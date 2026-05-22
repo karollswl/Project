@@ -1,23 +1,36 @@
-﻿using System;
+﻿using ProjectSmartHouse.Interfaces;
+using System;
 namespace ProjectSmartHouse.Models;
 
-public class Device
+public class Device : SmartComponent, ISmartDevice
 {
     public string Name { get; set; }
 
-    public Device()
+    public Device() : base("Пристрій")
     {
-        Name = "Пристрій";
     }
 
-    public Device(string name)
+    public Device(string name) : base(name)
     {
-        Name = name;
     }
 
-    public Device(Device other)
+    public Device(Device other) : base(other.Name)
     {
-        Name = other.Name;
+    }
+
+    public void TurnOn()
+    {
+        Name = Name + " увімкнено";
+    }
+
+    public void TurnOff()
+    {
+        Name = Name + " вимкнено";
+    }
+
+    public override bool IsActive()
+    {
+        return Name != "";
     }
 
     public bool IsDeviceActive()
