@@ -8,6 +8,4 @@ public abstract class SmartComponent
     {
         Name = name;
     }
-
-    public abstract bool IsActive();
 }

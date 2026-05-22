@@ -1,34 +1,39 @@
 ﻿using System;
+
 namespace ProjectSmartHouse.Models;
 
 public class BusinessProcess
 {
     public string Name { get; set; }
 
-    public BusinessProcess()
-    {
-        Name = "Процес";
-    }
-
     public BusinessProcess(string name)
     {
         Name = name;
     }
 
-    public BusinessProcess(BusinessProcess other)
+    public void CheckWaterLeak()
     {
-        Name = other.Name;
+        Console.WriteLine("Перевірка витоку води: витоку не виявлено.");
     }
 
-    public bool IsProcessActive()
+    public void CheckGasLeak()
     {
-        return Name == "Керування освітленням";
+        Console.WriteLine("Перевірка витоку газу: витоку не виявлено.");
     }
 
-    public void ShowProcessInfo()
+    public void CheckFireAlarm()
     {
-        Console.WriteLine($"Процес: {Name}");
-        Console.WriteLine($"Процес активний: {IsProcessActive()}");
+        Console.WriteLine("Перевірка пожежної сигналізації: небезпеки немає.");
+    }
+
+    public void CheckDoorsAndWindows()
+    {
+        Console.WriteLine("Перевірка дверей та вікон: усе зачинено.");
+    }
+
+    public void CheckTemperature()
+    {
+        Console.WriteLine("Перевірка температури: температура контролюється.");
     }
 
     public void CheckLighting()
@@ -36,18 +41,13 @@ public class BusinessProcess
         Console.WriteLine("Перевірка освітлення: освітлення працює.");
     }
 
-    public void CheckTemperature()
+    public void CheckMedia()
     {
-        Console.WriteLine("Перевірка температури: температура в нормі.");
+        Console.WriteLine("Перевірка аудіо/відео: система працює.");
     }
 
-    public void CheckSecurity()
+    public void CheckCamera()
     {
-        Console.WriteLine("Перевірка безпеки: двері та вікна зачинені.");
-    }
-
-    public void CheckFireAlarm()
-    {
-        Console.WriteLine("Перевірка пожежної сигналізації: небезпеки немає.");
+        Console.WriteLine("Перевірка відеоспостереження: камери працюють.");
     }
 }

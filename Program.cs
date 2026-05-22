@@ -2,7 +2,6 @@
 using System.Text;
 using ProjectSmartHouse.Models;
 using ProjectSmartHouse.Exceptions;
-using System.IO;
 
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
@@ -17,7 +16,7 @@ Console.WriteLine("Тема: Моделювання бізнес-процесі�
 
 Console.WriteLine();
 
-Console.WriteLine("Версія 6:");
+Console.WriteLine("Фінальний проєкт Smart-house");
 
 Console.WriteLine();
 
@@ -26,65 +25,50 @@ Console.WriteLine("Старт імітації");
 Console.WriteLine();
 
 User user = new User("Кароліна");
-
 SmartHouse house = new SmartHouse("м. Київ");
-
 Room room = new Room("Вітальня");
-
 Device device = new Device("Освітлення");
-
-BusinessProcess process = new BusinessProcess("Керування освітленням");
+BusinessProcess process = new BusinessProcess("Керування Smart-house");
 
 Console.WriteLine($"Користувач: {user.UserName}");
-
 Console.WriteLine($"Адреса: {house.Address}");
-
 Console.WriteLine($"Кімната: {room.Name}");
-
 Console.WriteLine($"Пристрій: {device.Name}");
-
 Console.WriteLine($"Процес: {process.Name}");
 
 Console.WriteLine();
 
-Console.WriteLine("Перевірка методів версії 3:");
+Console.WriteLine("Перевірка процесів Smart-house:");
 
-device.ShowDeviceInfo();
-
-process.ShowProcessInfo();
+process.CheckWaterLeak();
+process.CheckGasLeak();
+process.CheckFireAlarm();
+process.CheckDoorsAndWindows();
+process.CheckTemperature();
+process.CheckLighting();
+process.CheckMedia();
+process.CheckCamera();
 
 Console.WriteLine();
 
 Console.WriteLine("Перевірка операторів:");
 
 Device device2 = new Device("Камера");
-
 Device addDevice = device + device2;
-
 Device removeDevice = device - device2;
 
 Console.WriteLine($"Оператор + : {addDevice.Name}");
-
 Console.WriteLine($"Оператор - : {removeDevice.Name}");
-
-Console.WriteLine();
-
-Console.WriteLine("Перевірка методів другого пріоритету:");
-
-process.CheckLighting();
-
-process.CheckTemperature();
-
-process.CheckSecurity();
-
-process.CheckFireAlarm();
+Console.WriteLine($"Оператор == : {device == device2}");
+Console.WriteLine($"Оператор != : {device != device2}");
+Console.WriteLine($"Оператор > : {device > device2}");
+Console.WriteLine($"Оператор < : {device < device2}");
 
 Console.WriteLine();
 
 Console.WriteLine("Перевірка успадкування:");
 
 LightingDevice lightingDevice = new LightingDevice("Освітлення у вітальні", 80);
-
 SecurityDevice securityDevice = new SecurityDevice("Охоронна система", true);
 
 Console.WriteLine($"Пристрій освітлення: {lightingDevice.Name}");
@@ -98,16 +82,16 @@ Console.WriteLine($"Сигналізація активна: {securityDevice.Ala
 Console.WriteLine();
 
 lightingDevice.TurnOn();
-
 securityDevice.TurnOn();
 
 Console.WriteLine($"Після увімкнення: {lightingDevice.Name}");
 Console.WriteLine($"Після увімкнення: {securityDevice.Name}");
 
-Console.WriteLine($"Освітлення активне: {lightingDevice.IsActive()}");
-Console.WriteLine($"Безпека активна: {securityDevice.IsActive()}");
+lightingDevice.TurnOff();
+securityDevice.TurnOff();
 
-Console.WriteLine();
+Console.WriteLine($"Після вимкнення: {lightingDevice.Name}");
+Console.WriteLine($"Після вимкнення: {securityDevice.Name}");
 
 Console.WriteLine();
 
@@ -116,55 +100,26 @@ Console.WriteLine("Перевірка критичних ситуацій:");
 try
 {
     Console.Write("Введіть температуру будинку: ");
-
-    int temperature =
-        int.Parse(
-            Console.ReadLine()
-        );
+    int temperature = int.Parse(Console.ReadLine());
 
     if (temperature > 35)
     {
-        throw new SmartHouseException(
-            "Небезпечна температура."
-        );
+        throw new SmartHouseException("Небезпечна температура в будинку.");
     }
 
-    Console.WriteLine(
-        "Температура в нормі."
-    );
-
-    string config =
-        File.ReadAllText(
-            "config.txt"
-        );
-
-    Console.WriteLine(
-        "Налаштування завантажено."
-    );
+    Console.WriteLine("Температура в нормі.");
 }
 catch (FormatException)
 {
-    Console.WriteLine(
-        "Помилка введення температури."
-    );
-}
-catch (FileNotFoundException)
-{
-    Console.WriteLine(
-        "Файл налаштувань не знайдено."
-    );
+    Console.WriteLine("Помилка: температуру введено неправильно.");
 }
 catch (SmartHouseException ex)
 {
-    Console.WriteLine(
-        ex.Message
-    );
+    Console.WriteLine($"Критична ситуація: {ex.Message}");
 }
 finally
 {
-    Console.WriteLine(
-        "Система завершила перевірку."
-    );
+    Console.WriteLine("Система завершила перевірку.");
 }
 
 Console.WriteLine();
