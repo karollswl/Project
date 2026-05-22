@@ -15,7 +15,7 @@ Console.WriteLine("Тема: Моделювання бізнес-процесі�
 
 Console.WriteLine();
 
-Console.WriteLine("Версія 2:");
+Console.WriteLine("Версія 3:");
 
 Console.WriteLine();
 
@@ -42,6 +42,14 @@ Console.WriteLine($"Кімната: {room.Name}");
 Console.WriteLine($"Пристрій: {device.Name}");
 
 Console.WriteLine($"Процес: {process.Name}");
+
+Console.WriteLine();
+
+Console.WriteLine("Перевірка методів версії 3:");
+
+device.ShowDeviceInfo();
+
+process.ShowProcessInfo();
 
 Console.WriteLine();
 
