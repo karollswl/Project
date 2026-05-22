@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using ProjectSmartHouse.Models;
+using ProjectSmartHouse.Exceptions;
 
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
@@ -104,6 +105,10 @@ Console.WriteLine($"Після увімкнення: {securityDevice.Name}");
 
 Console.WriteLine($"Освітлення активне: {lightingDevice.IsActive()}");
 Console.WriteLine($"Безпека активна: {securityDevice.IsActive()}");
+
+Console.WriteLine();
+
+Console.WriteLine("Перевірка виняткових ситуацій:");
 
 Console.WriteLine("Фініш імітації");
 
