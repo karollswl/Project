@@ -15,7 +15,7 @@ Console.WriteLine("Тема: Моделювання бізнес-процесі�
 
 Console.WriteLine();
 
-Console.WriteLine("Версія 4:");
+Console.WriteLine("Версія 5:");
 
 Console.WriteLine();
 
@@ -76,6 +76,34 @@ process.CheckTemperature();
 process.CheckSecurity();
 
 process.CheckFireAlarm();
+
+Console.WriteLine();
+
+Console.WriteLine("Перевірка успадкування:");
+
+LightingDevice lightingDevice = new LightingDevice("Освітлення у вітальні", 80);
+
+SecurityDevice securityDevice = new SecurityDevice("Охоронна система", true);
+
+Console.WriteLine($"Пристрій освітлення: {lightingDevice.Name}");
+Console.WriteLine($"Яскравість: {lightingDevice.Brightness}");
+
+Console.WriteLine();
+
+Console.WriteLine($"Пристрій безпеки: {securityDevice.Name}");
+Console.WriteLine($"Сигналізація активна: {securityDevice.AlarmEnabled}");
+
+Console.WriteLine();
+
+lightingDevice.TurnOn();
+
+securityDevice.TurnOn();
+
+Console.WriteLine($"Після увімкнення: {lightingDevice.Name}");
+Console.WriteLine($"Після увімкнення: {securityDevice.Name}");
+
+Console.WriteLine($"Освітлення активне: {lightingDevice.IsActive()}");
+Console.WriteLine($"Безпека активна: {securityDevice.IsActive()}");
 
 Console.WriteLine("Фініш імітації");
 
