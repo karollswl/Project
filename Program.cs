@@ -2,6 +2,7 @@
 using System.Text;
 using ProjectSmartHouse.Models;
 using ProjectSmartHouse.Exceptions;
+using System.IO;
 
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
@@ -16,7 +17,7 @@ Console.WriteLine("Тема: Моделювання бізнес-процесі�
 
 Console.WriteLine();
 
-Console.WriteLine("Версія 5:");
+Console.WriteLine("Версія 6:");
 
 Console.WriteLine();
 
@@ -108,7 +109,65 @@ Console.WriteLine($"Безпека активна: {securityDevice.IsActive()}")
 
 Console.WriteLine();
 
-Console.WriteLine("Перевірка виняткових ситуацій:");
+Console.WriteLine();
+
+Console.WriteLine("Перевірка критичних ситуацій:");
+
+try
+{
+    Console.Write("Введіть температуру будинку: ");
+
+    int temperature =
+        int.Parse(
+            Console.ReadLine()
+        );
+
+    if (temperature > 35)
+    {
+        throw new SmartHouseException(
+            "Небезпечна температура."
+        );
+    }
+
+    Console.WriteLine(
+        "Температура в нормі."
+    );
+
+    string config =
+        File.ReadAllText(
+            "config.txt"
+        );
+
+    Console.WriteLine(
+        "Налаштування завантажено."
+    );
+}
+catch (FormatException)
+{
+    Console.WriteLine(
+        "Помилка введення температури."
+    );
+}
+catch (FileNotFoundException)
+{
+    Console.WriteLine(
+        "Файл налаштувань не знайдено."
+    );
+}
+catch (SmartHouseException ex)
+{
+    Console.WriteLine(
+        ex.Message
+    );
+}
+finally
+{
+    Console.WriteLine(
+        "Система завершила перевірку."
+    );
+}
+
+Console.WriteLine();
 
 Console.WriteLine("Фініш імітації");
 
