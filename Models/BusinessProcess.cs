@@ -30,4 +30,24 @@ public class BusinessProcess
         Console.WriteLine($"Процес: {Name}");
         Console.WriteLine($"Процес активний: {IsProcessActive()}");
     }
+
+    public void CheckLighting()
+    {
+        Console.WriteLine("Перевірка освітлення: освітлення працює.");
+    }
+
+    public void CheckTemperature()
+    {
+        Console.WriteLine("Перевірка температури: температура в нормі.");
+    }
+
+    public void CheckSecurity()
+    {
+        Console.WriteLine("Перевірка безпеки: двері та вікна зачинені.");
+    }
+
+    public void CheckFireAlarm()
+    {
+        Console.WriteLine("Перевірка пожежної сигналізації: небезпеки немає.");
+    }
 }
