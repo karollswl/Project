@@ -18,4 +18,9 @@ public class Device
     {
         Name = other.Name;
     }
+
+    public bool IsDeviceActive()
+    {
+        return Name == "Освітлення";
+    }
 }

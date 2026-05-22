@@ -18,4 +18,9 @@ public class BusinessProcess
     {
         Name = other.Name;
     }
+
+    public bool IsProcessActive()
+    {
+        return Name == "Керування освітленням";
+    }
 }
