@@ -15,7 +15,7 @@ Console.WriteLine("Тема: Моделювання бізнес-процесі�
 
 Console.WriteLine();
 
-Console.WriteLine("Версія 3:");
+Console.WriteLine("Версія 4:");
 
 Console.WriteLine();
 
@@ -52,6 +52,30 @@ device.ShowDeviceInfo();
 process.ShowProcessInfo();
 
 Console.WriteLine();
+
+Console.WriteLine("Перевірка операторів:");
+
+Device device2 = new Device("Камера");
+
+Device addDevice = device + device2;
+
+Device removeDevice = device - device2;
+
+Console.WriteLine($"Оператор + : {addDevice.Name}");
+
+Console.WriteLine($"Оператор - : {removeDevice.Name}");
+
+Console.WriteLine();
+
+Console.WriteLine("Перевірка методів другого пріоритету:");
+
+process.CheckLighting();
+
+process.CheckTemperature();
+
+process.CheckSecurity();
+
+process.CheckFireAlarm();
 
 Console.WriteLine("Фініш імітації");
 
