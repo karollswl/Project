@@ -2,7 +2,7 @@
 
 public class Room
 {
-    public string Name;
+    public string Name { get; set; }
 
     public Room()
     {

@@ -2,7 +2,7 @@
 
 public class SmartHouse
 {
-    public string Address;
+    public string Address { get; set; }
 
     public SmartHouse()
     {

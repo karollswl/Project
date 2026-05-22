@@ -2,7 +2,7 @@
 
 public class BusinessProcess
 {
-    public string Name;
+    public string Name { get; set; }
 
     public BusinessProcess()
     {

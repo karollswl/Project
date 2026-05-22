@@ -2,7 +2,7 @@
 
 public class Device
 {
-    public string Name;
+    public string Name { get; set; }
 
     public Device()
     {
