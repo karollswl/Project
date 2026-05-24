@@ -8,10 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Update="Data\appText.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Data\messages.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

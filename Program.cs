@@ -8,21 +8,17 @@ using System.Collections.Generic;
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
 
-Console.WriteLine("ПІБ: Кохан Кароліна Сергіївна");
-Console.WriteLine("Курс: 1");
-Console.WriteLine("Група: ІПЗ-11");
+TextLoader loader =
+    new TextLoader();
 
-Console.WriteLine();
+string text =
+    loader.LoadText(
+        "Data/appText.txt"
+    );
 
-Console.WriteLine("Тема: Моделювання бізнес-процесів в системі Smart-house");
-
-Console.WriteLine();
-
-Console.WriteLine("Фінальний проєкт Smart-house");
-
-Console.WriteLine();
-
-Console.WriteLine("Старт імітації");
+Console.WriteLine(
+    text
+);
 
 Console.WriteLine();
 
