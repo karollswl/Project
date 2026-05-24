@@ -59,6 +59,12 @@ public class Program
 
                 case "0":
 
+                    Console.WriteLine();
+
+                    Console.WriteLine(
+                        "Роботу завершено."
+                    );
+
                     exit = true;
 
                     break;
@@ -83,6 +89,12 @@ public class Program
         ShowHeader();
 
         RunMainScenario();
+
+        Console.WriteLine();
+
+        Console.WriteLine(
+            "Сценарій Smart-house завершено."
+        );
 
         Pause();
     }
