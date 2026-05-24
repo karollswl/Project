@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProjectSmartHouse.Models;
 
@@ -6,48 +7,51 @@ public class BusinessProcess
 {
     public string Name { get; set; }
 
-    public BusinessProcess(string name)
+    private Dictionary<string, string> Messages;
+
+    public BusinessProcess(string name, Dictionary<string, string> messages)
     {
         Name = name;
+        Messages = messages;
     }
 
     public void CheckWaterLeak()
     {
-        Console.WriteLine("Перевірка витоку води: витоку не виявлено.");
+        Console.WriteLine(Messages["WaterLeak"]);
     }
 
     public void CheckGasLeak()
     {
-        Console.WriteLine("Перевірка витоку газу: витоку не виявлено.");
+        Console.WriteLine(Messages["GasLeak"]);
     }
 
     public void CheckFireAlarm()
     {
-        Console.WriteLine("Перевірка пожежної сигналізації: небезпеки немає.");
+        Console.WriteLine(Messages["FireAlarm"]);
     }
 
     public void CheckDoorsAndWindows()
     {
-        Console.WriteLine("Перевірка дверей та вікон: усе зачинено.");
+        Console.WriteLine(Messages["DoorsAndWindows"]);
     }
 
     public void CheckTemperature()
     {
-        Console.WriteLine("Перевірка температури: температура контролюється.");
+        Console.WriteLine(Messages["Temperature"]);
     }
 
     public void CheckLighting()
     {
-        Console.WriteLine("Перевірка освітлення: освітлення працює.");
+        Console.WriteLine(Messages["Lighting"]);
     }
 
     public void CheckMedia()
     {
-        Console.WriteLine("Перевірка аудіо/відео: система працює.");
+        Console.WriteLine(Messages["Media"]);
     }
 
     public void CheckCamera()
     {
-        Console.WriteLine("Перевірка відеоспостереження: камери працюють.");
+        Console.WriteLine(Messages["Camera"]);
     }
 }

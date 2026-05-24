@@ -2,6 +2,8 @@
 using System.Text;
 using ProjectSmartHouse.Models;
 using ProjectSmartHouse.Exceptions;
+using ProjectSmartHouse.Services;
+using System.Collections.Generic;
 
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
@@ -28,7 +30,13 @@ User user = new User("Кароліна");
 SmartHouse house = new SmartHouse("м. Київ");
 Room room = new Room("Вітальня");
 Device device = new Device("Освітлення");
-BusinessProcess process = new BusinessProcess("Керування Smart-house");
+
+MessageLoader messageLoader = new MessageLoader();
+
+Dictionary<string, string> messages =
+    messageLoader.LoadMessages("Data/messages.json");
+
+BusinessProcess process = new BusinessProcess("Керування Smart-house", messages);
 
 Console.WriteLine($"Користувач: {user.UserName}");
 Console.WriteLine($"Адреса: {house.Address}");
@@ -40,14 +48,14 @@ Console.WriteLine();
 
 Console.WriteLine("Перевірка процесів Smart-house:");
 
-process.CheckWaterLeak();
-process.CheckGasLeak();
-process.CheckFireAlarm();
-process.CheckDoorsAndWindows();
-process.CheckTemperature();
-process.CheckLighting();
-process.CheckMedia();
-process.CheckCamera();
+process.CheckWaterLeak();  // перевірка витоку води
+process.CheckGasLeak();  // перевірка витоку газу
+process.CheckFireAlarm();  // пожежна сигналізація
+process.CheckDoorsAndWindows();  // перевірка дверей та вікон
+process.CheckTemperature();  // перевірка температури
+process.CheckLighting();  // перевірка освітлення
+process.CheckMedia();  // перевірка аудіо/відео
+process.CheckCamera();  // перевірка відеоспостереження
 
 Console.WriteLine();
 
