@@ -54,4 +54,23 @@ public class BusinessProcess
     {
         Console.WriteLine(Localization["Camera"]);
     }
+
+    public void RunAllChecks()
+    {
+        CheckWaterLeak();
+
+        CheckGasLeak();
+
+        CheckFireAlarm();
+
+        CheckDoorsAndWindows();
+
+        CheckTemperature();
+
+        CheckLighting();
+
+        CheckMedia();
+
+        CheckCamera();
+    }
 }

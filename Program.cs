@@ -184,21 +184,7 @@ public class Program
 
         Console.WriteLine();
 
-        process.CheckWaterLeak();
-
-        process.CheckGasLeak();
-
-        process.CheckFireAlarm();
-
-        process.CheckDoorsAndWindows();
-
-        process.CheckTemperature();
-
-        process.CheckLighting();
-
-        process.CheckMedia();
-
-        process.CheckCamera();
+        process.RunAllChecks();
 
         Console.WriteLine();
 
