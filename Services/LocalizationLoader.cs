@@ -4,20 +4,20 @@ using System.Text.Json;
 
 namespace ProjectSmartHouse.Services;
 
-public class MessageLoader
+public class LocalizationLoader
 {
-    public Dictionary<string, string> LoadMessages(string path)
+    public Dictionary<string, string> LoadLocalization(string path)
     {
         string json = File.ReadAllText(path);
 
-        Dictionary<string, string> messages =
+        Dictionary<string, string> localization =
             JsonSerializer.Deserialize<Dictionary<string, string>>(json);
 
-        if (messages == null)
+        if (localization == null)
         {
-            messages = new Dictionary<string, string>();
+            localization = new Dictionary<string, string>();
         }
 
-        return messages;
+        return localization;
     }
 }

@@ -7,51 +7,51 @@ public class BusinessProcess
 {
     public string Name { get; set; }
 
-    private Dictionary<string, string> Messages;
+    private Dictionary<string, string> Localization;
 
-    public BusinessProcess(string name, Dictionary<string, string> messages)
+    public BusinessProcess(string name, Dictionary<string, string> localization)
     {
         Name = name;
-        Messages = messages;
+        Localization = localization;
     }
 
     public void CheckWaterLeak()
     {
-        Console.WriteLine(Messages["WaterLeak"]);
+        Console.WriteLine(Localization["WaterLeak"]);
     }
 
     public void CheckGasLeak()
     {
-        Console.WriteLine(Messages["GasLeak"]);
+        Console.WriteLine(Localization["GasLeak"]);
     }
 
     public void CheckFireAlarm()
     {
-        Console.WriteLine(Messages["FireAlarm"]);
+        Console.WriteLine(Localization["FireAlarm"]);
     }
 
     public void CheckDoorsAndWindows()
     {
-        Console.WriteLine(Messages["DoorsAndWindows"]);
+        Console.WriteLine(Localization["DoorsAndWindows"]);
     }
 
     public void CheckTemperature()
     {
-        Console.WriteLine(Messages["Temperature"]);
+        Console.WriteLine(Localization["Temperature"]);
     }
 
     public void CheckLighting()
     {
-        Console.WriteLine(Messages["Lighting"]);
+        Console.WriteLine(Localization["Lighting"]);
     }
 
     public void CheckMedia()
     {
-        Console.WriteLine(Messages["Media"]);
+        Console.WriteLine(Localization["Media"]);
     }
 
     public void CheckCamera()
     {
-        Console.WriteLine(Messages["Camera"]);
+        Console.WriteLine(Localization["Camera"]);
     }
 }

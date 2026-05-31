@@ -101,16 +101,34 @@ public class Program
 
     static void ShowHeader()
     {
-        TextLoader loader =
-            new TextLoader();
+        LocalizationLoader loader =
+    new LocalizationLoader();
 
-        string text =
-            loader.LoadText(
-                "Data/appText.txt"
+        Dictionary<string, string> localization =
+            loader.LoadLocalization(
+                "Data/localization.json"
             );
 
         Console.WriteLine(
-            text
+            localization["StudentInfo"]
+        );
+
+        Console.WriteLine();
+
+        Console.WriteLine(
+            localization["ProjectTopic"]
+        );
+
+        Console.WriteLine();
+
+        Console.WriteLine(
+            localization["ProjectTitle"]
+        );
+
+        Console.WriteLine();
+
+        Console.WriteLine(
+            localization["StartSimulation"]
         );
 
         Console.WriteLine();
@@ -130,18 +148,18 @@ public class Program
         Device device =
             new Device("Освітлення");
 
-        MessageLoader messageLoader =
-            new MessageLoader();
+        LocalizationLoader loader =
+    new LocalizationLoader();
 
-        Dictionary<string, string> messages =
-            messageLoader.LoadMessages(
-                "Data/messages.json"
+        Dictionary<string, string> localization =
+            loader.LoadLocalization(
+                "Data/localization.json"
             );
 
         BusinessProcess process =
             new BusinessProcess(
                 "Керування Smart-house",
-                messages
+                localization
             );
 
         Console.WriteLine(
